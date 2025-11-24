@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hachant - Cửa hàng bán hàng điện tử</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="dautrang">
+        <div class="dautrang_container">
+            <a href="" class="tentrang"><img src="asset/Logo cho trang web b.png" alt="" width="150px" height="150px"></a>
+            <div class="timkiem_container">
+                <input type="text" class="timkiem_input" placeholder="Tìm kiếm sản phẩm...">
+                <button type="button" class="timkiem_nut" onclick="onSearch()">Tìm kiếm</button>
+            </div>
+         <nav class="thucdon">
+        <a href="index.html" class="thucdon_item">Trang chủ</a>
+        <div class="sanpham_dropdown">
+            <button class="sanpham_nut">Sản phẩm</button>
+            <div class="sanpham_menu">
+                <a href="laptop.html" class="sanpham_muc">💻 Laptop</a>
+                <a href="pc.html" class="sanpham_muc">🖥️ PC</a>
+                <a href="linh-kien.html" class="sanpham_muc">⚙️ Linh kiện</a>
+                <a href="phu-kien.html" class="sanpham_muc">🎧 Phụ kiện</a>
+            </div>
+        </div>
+        <a href="dang-nhap.html" class="dangnhap_nut">Đăng nhập</a>
+    </nav>
+        </div>
+    </header>
+    <section class="banner">
+        <h1>Chào mừng đến Hachant</h1>
+        <p>Khám phá những sản phẩm điện tử chất lượng cao với giá cả tốt nhất</p>
+    </section>
+    <main class="noidung">
+        <section class="tat_ca_san_pham">
+            <h2 class="tieude">Tất cả sản phẩm</h2>
+            <div class="bo_loc">
+                <div class="loc_nhom">
+                    <strong class="cat-icon">Danh mục:</strong>
+                    <label><input type="radio" name="cat" checked> Tất cả</label>
+                    <label><input type="radio" name="cat"> 💻 Laptop</label>
+                    <label><input type="radio" name="cat"> 🖥️ PC</label>
+                    <label><input type="radio" name="cat"> ⚙️ Linh kiện</label>
+                    <label><input type="radio" name="cat"> 🎧 Phụ kiện</label>
+                </div>
+                <div class="loc_gia">
+                    <strong class="price-icon">Khoảng giá:</strong>
+                    <label><input type="radio" name="price" checked> Tất cả</label>
+                    <label><input type="radio" name="price"> &lt; 1.000.000₫</label>
+                    <label><input type="radio" name="price"> 1.000.000₫ - 5.000.000₫</label>
+                    <label><input type="radio" name="price"> 5.000.000₫ - 10.000.000₫</label>
+                    <label><input type="radio" name="price"> 10.000.000₫ - 20.000.000₫</label>
+                    <label><input type="radio" name="price"> &gt; 20.000.000₫</label>
+                </div>
+            </div>
+            <!-- Static product cards with category + price classes -->
+            <div class="sanpham_danh_sach">
+                <!-- Laptop -->
+                <div class="sanpham_the danhmuc-laptop price-p4">
+                    <div class="sanpham_anh"><img src="asset/tải xuống.jpg" alt="Laptop Dell XPS 13"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">Laptop Dell XPS 13</div>
+                        <div class="sanpham_gia">15.990.000₫</div>
+                        <div class="sanpham_mo_ta">Intel Core i7, RAM 16GB, SSD 512GB</div>
+                        <div style="margin-top:10px"><a href="laptop.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-laptop price-p4">
+                    <div class="sanpham_anh"><img src="asset/tải e.jpg" alt="Laptop HP Pavilion 15"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">Laptop HP Pavilion 15</div>
+                        <div class="sanpham_gia">12.990.000₫</div>
+                        <div class="sanpham_mo_ta">Intel Core i5, RAM 8GB, SSD 256GB</div>
+                        <div style="margin-top:10px"><a href="laptop.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-laptop price-p4">
+                    <div class="sanpham_anh"><img src="asset/tải xuống (1).jpg" alt="Laptop Lenovo ThinkPad"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">Laptop Lenovo ThinkPad</div>
+                        <div class="sanpham_gia">14.990.000₫</div>
+                        <div class="sanpham_mo_ta">Intel Core i7, RAM 16GB, SSD 512GB</div>
+                        <div style="margin-top:10px"><a href="laptop.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-laptop price-p4">
+                    <div class="sanpham_anh"><img src="asset/tải xuống (2).jpg" alt="Laptop Asus VivoBook"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">Laptop Asus VivoBook</div>
+                        <div class="sanpham_gia">10.990.000₫</div>
+                        <div class="sanpham_mo_ta">AMD Ryzen 5, RAM 8GB, SSD 512GB</div>
+                        <div style="margin-top:10px"><a href="laptop.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <!-- PC -->
+                <div class="sanpham_the danhmuc-pc price-p5">
+                    <div class="sanpham_anh">🖥️</div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">PC Gaming High-End</div>
+                        <div class="sanpham_gia">25.990.000₫</div>
+                        <div class="sanpham_mo_ta">Intel i9, RTX 4090, RAM 32GB</div>
+                        <div style="margin-top:10px"><a href="pc.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-pc price-p3">
+                    <div class="sanpham_anh">🖥️</div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">PC Văn Phòng</div>
+                        <div class="sanpham_gia">8.990.000₫</div>
+                        <div class="sanpham_mo_ta">Intel i5, RAM 8GB, SSD 256GB</div>
+                        <div style="margin-top:10px"><a href="pc.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-pc price-p5">
+                    <div class="sanpham_anh">🖥️</div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">PC Workstation</div>
+                        <div class="sanpham_gia">35.990.000₫</div>
+                        <div class="sanpham_mo_ta">Intel Xeon, RTX 4080, RAM 64GB</div>
+                        <div style="margin-top:10px"><a href="pc.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-pc price-p4">
+                    <div class="sanpham_anh">🖥️</div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">PC Streaming</div>
+                        <div class="sanpham_gia">18.990.000₫</div>
+                        <div class="sanpham_mo_ta">AMD Ryzen 9, RTX 3080, RAM 32GB</div>
+                        <div style="margin-top:10px"><a href="pc.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <!-- Linh kiện -->
+                <div class="sanpham_the danhmuc-linh-kien price-p4">
+                    <div class="sanpham_anh"><img src="asset/tải xuống (3).jpg" alt="CPU Intel Core i9-13900K"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">CPU Intel Core i9-13900K</div>
+                        <div class="sanpham_gia">12.990.000₫</div>
+                        <div class="sanpham_mo_ta">24 cores, 5.8 GHz, Socket 1700</div>
+                        <div style="margin-top:10px"><a href="linh-kien.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-linh-kien price-p4">
+                    <div class="sanpham_anh"><img src="asset/tải xuống (4).jpg" alt="GPU RTX 4090"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">GPU RTX 4090</div>
+                        <div class="sanpham_gia">19.990.000₫</div>
+                        <div class="sanpham_mo_ta">24GB GDDR6X, 384-bit</div>
+                        <div style="margin-top:10px"><a href="linh-kien.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-linh-kien price-p2">
+                    <div class="sanpham_anh"><img src="asset/tải xuống (5).jpg" alt="RAM DDR5 32GB"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">RAM DDR5 32GB</div>
+                        <div class="sanpham_gia">4.990.000₫</div>
+                        <div class="sanpham_mo_ta">6000MHz, Corsair Vengeance</div>
+                        <div style="margin-top:10px"><a href="linh-kien.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-linh-kien price-p2">
+                    <div class="sanpham_anh"><img src="asset/tải xuống.png" alt="SSD NVMe 1TB"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">SSD NVMe 1TB</div>
+                        <div class="sanpham_gia">1.990.000₫</div>
+                        <div class="sanpham_mo_ta">Samsung 990 Pro, 7400 MB/s</div>
+                        <div style="margin-top:10px"><a href="linh-kien.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <!-- Phụ kiện -->
+                <div class="sanpham_the danhmuc-phu-kien price-p2">
+                    <div class="sanpham_anh"><img src="asset/tải xuống (6).jpg" alt="Tai nghe Gaming Wireless"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">Tai nghe Gaming Wireless</div>
+                        <div class="sanpham_gia">2.990.000₫</div>
+                        <div class="sanpham_mo_ta">7.1 Surround, Noise Cancelling</div>
+                        <div style="margin-top:10px"><a href="phu-kien.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-phu-kien price-p1">
+                    <div class="sanpham_anh"><img src="asset/tải xuống (7).jpg" alt="Chuột Gaming RGB"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">Chuột Gaming RGB</div>
+                        <div class="sanpham_gia">890.000₫</div>
+                        <div class="sanpham_mo_ta">16000 DPI, 8 buttons</div>
+                        <div style="margin-top:10px"><a href="phu-kien.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-phu-kien price-p2">
+                    <div class="sanpham_anh"><img src="asset/tải xuống (8).jpg" alt="Bàn phím Cơ RGB"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">Bàn phím Cơ RGB</div>
+                        <div class="sanpham_gia">2.490.000₫</div>
+                        <div class="sanpham_mo_ta">Brown Switch, Aluminum</div>
+                        <div style="margin-top:10px"><a href="phu-kien.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+
+                <div class="sanpham_the danhmuc-phu-kien price-p1">
+                    <div class="sanpham_anh"><img src="asset/tải xuống (9).jpg" alt="Cáp USB Type-C 2M"></div>
+                    <div class="sanpham_thong_tin">
+                        <div class="sanpham_ten">Cáp USB Type-C 2M</div>
+                        <div class="sanpham_gia">290.000₫</div>
+                        <div class="sanpham_mo_ta">100W Fast Charging</div>
+                        <div style="margin-top:10px"><a href="phu-kien.html" style="text-decoration:none"><button class="sanpham_nut">Xem</button></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</main>
+<footer class="chantrang">
+        <div class="chantrang_container">
+            <div class="chantrang_info">
+                <div class="chantrang_title">Liên hệ & Địa chỉ cửa hàng</div>
+                <div class="chantrang_lienhe">
+                    <span><strong>Email:</strong> <a href="support.html">support@hachant.vn</a></span><br>
+                    <span><strong>Hotline:</strong> <a href="tel:0123456789">0123 456 789</a></span>
+                </div>
+                <div class="chantrang_diachi">
+                    <span><strong>Địa chỉ cửa hàng:</strong> 123 Đường Số 1, Quận 1, TP. Hồ Chí Minh</span>
+                </div>
+            </div>
+        </div>
+</footer>
+        <div class="chantrang_baove" align="center">Hachant© - Nội dung đc bảo vệ</div>
+</body>
+</html>

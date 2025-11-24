@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop - Hachant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        .dautrang {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .dautrang_container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tentrang {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .tentrang:hover {
+            color: #c0392b;
+        }
+
+        .timkiem_container {
+            flex: 1;
+            margin: 0 30px;
+            display: flex;
+        }
+
+        .timkiem_input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+        }
+
+        .timkiem_input:focus {
+            outline: none;
+            border-color: #e74c3c;
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+        }
+
+        .timkiem_nut {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .timkiem_nut:hover {
+            background-color: #c0392b;
+        }
+
+        .thucdon {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .thucdon_item {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .thucdon_item:hover {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        .sanpham_dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .sanpham_nut {
+            background: none;
+            border: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .sanpham_nut:hover {
+            color: #e74c3c;
+        }
+
+        .sanpham_menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 5px;
+            z-index: 50;
+        }
+
+        .sanpham_dropdown:hover .sanpham_menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .sanpham_muc {
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+            display: block;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+
+        .sanpham_muc:last-child {
+            border-bottom: none;
+        }
+
+        .sanpham_muc:hover {
+            background-color: #f5f5f5;
+            color: #e74c3c;
+            padding-left: 25px;
+        }
+
+        .dangnhap_nut {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .dangnhap_nut:hover {
+            background-color: #c0392b;
+        }
+
+        .noidung {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .tieude {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+
+        .sanpham_danh_sach {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sanpham_the {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .sanpham_the:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .sanpham_anh {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .sanpham_thong_tin {
+            padding: 15px;
+        }
+
+        .sanpham_ten {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .sanpham_gia {
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sanpham_mo_ta {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .sanpham_nut {
+            width: 100%;
+            padding: 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .sanpham_nut:hover {
+            background-color: #c0392b;
+        }
+
+        @media (max-width: 768px) {
+            .dautrang_container {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .tentrang {
+                font-size: 22px;
+            }
+
+            .timkiem_container {
+                margin: 10px 0;
+                order: 3;
+                flex-basis: 100%;
+            }
+
+            .thucdon {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .sanpham_danh_sach {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="dautrang">
+        <div class="dautrang_container">
+            <a href="index.html" class="tentrang">Hachant</a>
+
+            <div class="timkiem_container">
+                <input type="text" class="timkiem_input" placeholder="Tìm kiếm (không hoạt động khi chỉ dùng HTML/CSS)">
+                <button type="button" class="timkiem_nut">Tìm kiếm</button>
+            </div>
+
+            <nav class="thucdon">
+                <a href="index.html" class="thucdon_item">Trang chủ</a>
+                
+                <div class="sanpham_dropdown">
+                    <button class="sanpham_nut">Sản phẩm</button>
+                    <div class="sanpham_menu">
+                        <a href="laptop.html" class="sanpham_muc">💻 Laptop</a>
+                        <a href="pc.html" class="sanpham_muc">🖥️ PC</a>
+                        <a href="linh-kien.html" class="sanpham_muc">⚙️ Linh kiện</a>
+                        <a href="phu-kien.html" class="sanpham_muc">🎧 Phụ kiện</a>
+                    </div>
+                </div>
+                
+                <a href="dang-nhap.html" class="dangnhap_nut">Đăng nhập</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="noidung">
+        <h1 class="tieude">💻 Laptop</h1>
+        
+        <div class="sanpham_danh_sach">
+            <div class="sanpham_the">
+                <div class="sanpham_anh"><img src="asset/tải xuống.jpg" alt=""></div>
+                <div class="sanpham_thong_tin">
+                    <div class="sanpham_ten">Laptop Dell XPS 13</div>
+                    <div class="sanpham_gia">15.990.000₫</div>
+                    <div class="sanpham_mo_ta">Intel Core i7, RAM 16GB, SSD 512GB</div>
+                    <button class="sanpham_nut">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="sanpham_the">
+                <div class="sanpham_anh"><img src="asset/tải e.jpg" alt=""></div>
+                <div class="sanpham_thong_tin">
+                    <div class="sanpham_ten">Laptop HP Pavilion 15</div>
+                    <div class="sanpham_gia">12.990.000₫</div>
+                    <div class="sanpham_mo_ta">Intel Core i5, RAM 8GB, SSD 256GB</div>
+                    <button class="sanpham_nut">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="sanpham_the">
+                <div class="sanpham_anh"><img src="asset/tải xuống (1).jpg" alt=""></div>
+                <div class="sanpham_thong_tin">
+                    <div class="sanpham_ten">Laptop Lenovo ThinkPad</div>
+                    <div class="sanpham_gia">14.990.000₫</div>
+                    <div class="sanpham_mo_ta">Intel Core i7, RAM 16GB, SSD 512GB</div>
+                    <button class="sanpham_nut">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="sanpham_the">
+                <div class="sanpham_anh"><img src="asset/tải xuống (2).jpg" alt=""></div>
+                <div class="sanpham_thong_tin">
+                    <div class="sanpham_ten">Laptop Asus VivoBook</div>
+                    <div class="sanpham_gia">10.990.000₫</div>
+                    <div class="sanpham_mo_ta">AMD Ryzen 5, RAM 8GB, SSD 512GB</div>
+                    <button class="sanpham_nut">Thêm vào giỏ</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- JavaScript removed to keep site HTML/CSS-only -->
+</body>
+</html>

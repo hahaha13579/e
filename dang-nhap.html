@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Hachant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        .dautrang {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .dautrang_container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tentrang {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .tentrang:hover {
+            color: #c0392b;
+        }
+
+        .timkiem_container {
+            flex: 1;
+            margin: 0 30px;
+            display: flex;
+        }
+
+        .timkiem_input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+        }
+
+        .timkiem_input:focus {
+            outline: none;
+            border-color: #e74c3c;
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+        }
+
+        .timkiem_nut {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .timkiem_nut:hover {
+            background-color: #c0392b;
+        }
+
+        .thucdon {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .thucdon_item {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .thucdon_item:hover {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        .sanpham_dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .sanpham_nut {
+            background: none;
+            border: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .sanpham_nut:hover {
+            color: #e74c3c;
+        }
+
+        .sanpham_menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 5px;
+            z-index: 50;
+        }
+
+        .sanpham_dropdown:hover .sanpham_menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .sanpham_muc {
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+            display: block;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+
+        .sanpham_muc:last-child {
+            border-bottom: none;
+        }
+
+        .sanpham_muc:hover {
+            background-color: #f5f5f5;
+            color: #e74c3c;
+            padding-left: 25px;
+        }
+
+        .dangnhap_nut {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .dangnhap_nut:hover {
+            background-color: #c0392b;
+        }
+
+        /* Main Content */
+        .noidung {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+        }
+
+        .dang_nhap_container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .dang_nhap_tieude {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .dang_nhap_phu_de {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form_group {
+            margin-bottom: 20px;
+        }
+
+        .form_label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form_input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form_input:focus {
+            outline: none;
+            border-color: #e74c3c;
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+        }
+
+        .form_checkbox_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .form_checkbox {
+            margin-right: 5px;
+        }
+
+        .form_checkbox_label {
+            color: #333;
+        }
+
+        .form_link {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        .form_link:hover {
+            text-decoration: underline;
+        }
+
+        .dang_nhap_submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .dang_nhap_submit:hover {
+            background-color: #c0392b;
+        }
+
+        .dang_ky_link {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .dang_ky_link a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .dang_ky_link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .dautrang_container {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .tentrang {
+                font-size: 22px;
+            }
+
+            .timkiem_container {
+                margin: 10px 0;
+                order: 3;
+                flex-basis: 100%;
+            }
+
+            .thucdon {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .dang_nhap_container {
+                padding: 20px;
+            }
+
+            .dang_nhap_tieude {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="dautrang">
+        <div class="dautrang_container">
+            <a href="index.html" class="tentrang">Hachant</a>
+
+            <div class="timkiem_container">
+                <input type="text" class="timkiem_input" placeholder="Tìm kiếm (không hoạt động khi chỉ dùng HTML/CSS)">
+                <button type="button" class="timkiem_nut">Tìm kiếm</button>
+            </div>
+
+            <nav class="thucdon">
+                <a href="index.html" class="thucdon_item">Trang chủ</a>
+                
+                <div class="sanpham_dropdown">
+                    <button class="sanpham_nut">Sản phẩm</button>
+                    <div class="sanpham_menu">
+                        <a href="laptop.html" class="sanpham_muc">💻 Laptop</a>
+                        <a href="pc.html" class="sanpham_muc">🖥️ PC</a>
+                        <a href="linh-kien.html" class="sanpham_muc">⚙️ Linh kiện</a>
+                        <a href="phu-kien.html" class="sanpham_muc">🎧 Phụ kiện</a>
+                    </div>
+                </div>
+                
+                <a href="dang-nhap.html" class="dangnhap_nut">Đăng nhập</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="noidung">
+        <div class="dang_nhap_container">
+            <h1 class="dang_nhap_tieude">Đăng nhập</h1>
+            <p class="dang_nhap_phu_de">Chào mừng quay lại Hachant</p>
+
+            <form class="dang_nhap_form">
+                <div class="form_group">
+                    <label class="form_label" for="email">Email hoặc Số điện thoại</label>
+                    <input type="text" class="form_input" id="email" placeholder="Nhập email hoặc số điện thoại" required>
+                </div>
+
+                <div class="form_group">
+                    <label class="form_label" for="password">Mật khẩu</label>
+                    <input type="password" class="form_input" id="password" placeholder="Nhập mật khẩu" required>
+                </div>
+
+                <div class="form_checkbox_container">
+                    <label class="form_checkbox_label">
+                        <input type="checkbox" class="form_checkbox"> Ghi nhớ tôi
+                    </label>
+                    <a href="#" class="form_link">Quên mật khẩu?</a>
+                </div>
+
+                <button type="submit" class="dang_nhap_submit">Đăng nhập</button>
+
+                <div class="dang_ky_link">
+                    Chưa có tài khoản? <a href="#">Đăng ký ngay</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    <!-- JavaScript removed to keep site HTML/CSS-only -->
+</body>
+</html>
